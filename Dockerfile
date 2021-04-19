@@ -1,20 +1,20 @@
 FROM ruby:2.6.3-alpine3.10
 
 RUN apk add --update --no-cache \
-                binutils-gold \
-                build-base \
-                curl \
-                file \
-                g++ \
-                gcc \
-                git \
-                make \
-                pkgconfig \
-                postgresql-dev \
-                yarn \
-                nodejs \
-                tzdata \
-                imagemagick
+    binutils-gold \
+    build-base \
+    curl \
+    file \
+    g++ \
+    gcc \
+    git \
+    make \
+    pkgconfig \
+    postgresql-dev \
+    yarn \
+    nodejs \
+    tzdata \
+    imagemagick
 
 WORKDIR /transcendence
 
@@ -25,10 +25,10 @@ RUN gem install rake
 RUN gem install devise
 #RUN gem install bundler 1.17.2
 COPY ./srcs/myapp/Gemfile /transcendence/Gemfile
-COPY ./srcs/myapp/Gemfile.lock /transcendence/Gemfile.lock
+#COPY ./srcs/myapp/Gemfile.lock /transcendence/Gemfile.lock
 
 #RUN bundle and dependencies install
-RUN bundle update --bundler && bundle install
+RUN bundle install && bundle update --bundler
 RUN yarn install
 RUN rails webpacker:install
 

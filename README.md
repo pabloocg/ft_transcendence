@@ -1,6 +1,7 @@
 
 # Transcendence
 
+![](pong-record.gif)
 
 ## Table of Contents
 
